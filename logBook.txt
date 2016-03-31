@@ -1,0 +1,5 @@
+List.h
+insert():
+    insättning på pos =0 funkar.
+get():
+    hämta data på pos funkar.
