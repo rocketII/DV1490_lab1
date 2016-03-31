@@ -41,31 +41,32 @@ int main()
     {
         cout<<aList.get(i)<<endl;
     }*/
-    cout<<"another List"<<endl;
+
+
     List<int> bList=aList;
+    cout <<"rm aList: "<< aList.removeAt(0)<<endl;
+    cout<<"another List"<<endl;
     cout<<bList.get(0)<<"\n";
     cout<<bList.get(1)<<"\n";
     cout<<bList.get(2)<<"\n";
-    cout<<bList.get(3)<<"\n";
-    bList.insertAt(300,3);//300
+
+    bList.insertAt(6,0);//300
     cout <<"..."<<endl;
-    bList.insertAt(310,4);//310,300
-    bList.insertAt(320,5);//320,310,300
-    cout <<"rm: "<< aList.removeAt(0)<<endl;
+    bList.insertAt(444,0);//310,300
+    bList.insertAt(2,0);//320,310,300
+
 
     aList.insertAt(18,0);
     cout <<"printing aList followed by bList"<<endl;
-    for (int i = 0; i < 6 ; ++i)
+    for (int i = 0; i < bList.size() ; ++i)
     {
         cout<<bList.get(i)<<endl;
     }
-    cout<<"aList:"<<endl;
-    for (int i = 0; i < 6 ; ++i)
+    cout<<"aList with size "<<aList.size()<<endl;
+    for (int i = 0; i < aList.size()-1 ; ++i)
     {
         cout<<aList.get(i)<<endl;
     }
-
-
 
     cout << "Hello, World!" << endl;
 /*

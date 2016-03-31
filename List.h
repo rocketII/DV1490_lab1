@@ -215,7 +215,7 @@ void List<T>::clear()
 template <class T>
 int List<T>::size()
 {
-
+    return this->nrOfElements;
 }
 
 #endif //LAB1_ADT_LIST_QUEUE_STACK_LIST_H

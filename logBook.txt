@@ -8,6 +8,9 @@ insert():
 get():
     hämta data på pos funkar.
 removeAt(int pos):
+    kan ta bort på pos=0.
+    kan ta bort på 0<pos<nrOfElements.
+    pos utanför definition ger exceptions. 
 
 ************************
 *                      *
