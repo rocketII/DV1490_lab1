@@ -57,13 +57,13 @@ int main()
 
 
     aList.insertAt(18,0);
-    cout <<"printing aList followed by bList"<<endl;
-    for (int i = 0; i < bList.size() ; ++i)
+    cout <<"printing aList followed by bList. aList have"<<endl;
+    for (int i = 0; i < bList.size()-1 ; ++i)
     {
         cout<<bList.get(i)<<endl;
     }
     cout<<"aList with size "<<aList.size()<<endl;
-    for (int i = 0; i < aList.size()-1 ; ++i)
+    for (int i = 0; i < aList.size()-2 ; ++i)
     {
         cout<<aList.get(i)<<endl;
     }

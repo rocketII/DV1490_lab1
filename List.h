@@ -59,6 +59,7 @@ public:
 //Class management
 
 template <class T>
+//tested
 List<T>::List()
 {
     this->nrOfElements=0;
@@ -77,7 +78,8 @@ List<T>::List(const List& orgin)
 
     this->nrOfElements = 0;
     this->first = nullptr;
-    if (orgin.nrOfElements > 0) {
+    if (orgin.nrOfElements > 0)
+    {
         this->nrOfElements = orgin.nrOfElements;
         this->first = new Node(orgin.first->data);
         //alternative 2
@@ -106,6 +108,7 @@ List<T>& List<T>::operator=(const List& orgin)
 
 //member functions
 template <class T>
+//tested
 void List<T>::insertAt(const T& data, int pos)
 {
     Node* aNode = new Node(data); //peka nod obj
@@ -180,12 +183,10 @@ T List<T>::removeAt(int pos)
         for (int i = 0; i < pos; ++i)
         {
             remove = remove->next;
-
         }
         for (int i = 0; i < pos-1; ++i)
         {
             beforeRm= beforeRm->next;
-
         }
         backUp = remove->data;
         if(pos == (this->nrOfElements-1))
@@ -208,14 +209,14 @@ T List<T>::removeAt(int pos)
 template <class T>
 void List<T>::clear()
 {
-
+    this->nrOfElements=0;
 }
 
 
 template <class T>
 int List<T>::size()
 {
-    return this->nrOfElements;
+    return this->nrOfElements+1;
 }
 
 #endif //LAB1_ADT_LIST_QUEUE_STACK_LIST_H
