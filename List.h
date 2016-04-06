@@ -108,7 +108,7 @@ List<T>& List<T>::operator=(const List& orgin)
 
 //member functions
 template <class T>
-//tested
+//tested pos==0, pos > 0. pos > nrOfElements
 void List<T>::insertAt(const T& data, int pos)
 {
     Node* aNode = new Node(data); //peka nod obj
@@ -116,24 +116,23 @@ void List<T>::insertAt(const T& data, int pos)
     //bygg så lite som möjligt sen testa.
     if(pos==0)
     {
-
         aNode->next=this->first;
         this->first=aNode;
         this->nrOfElements++;
 
     }
-    else if(pos < 0 || (pos > this->nrOfElements || pos == this->nrOfElements) )
+    else if(pos < 0 || pos > this->nrOfElements )
     {
         throw "ERROR: out of bounds";
     }
     else
     {
         nodeBeforeInsert = this->first;
-        for (int i = 0; i < pos-1 ; ++i)
+        for (int i = 0; i < pos-1; ++i)
         {
             nodeBeforeInsert = nodeBeforeInsert->next;
         }
-        aNode->next=nodeBeforeInsert->next;
+        nodeBeforeInsert->next=aNode;
         this->nrOfElements++;
 
     }
@@ -141,7 +140,7 @@ void List<T>::insertAt(const T& data, int pos)
 }
 
 
-template <class T>
+template <class T>//tested, valid
 const T& List<T>::get(int pos)const
 {
     //kolla pos med throw
@@ -156,7 +155,7 @@ const T& List<T>::get(int pos)const
 }
 
 
-template <class T>
+template <class T>//tested
 T List<T>::removeAt(int pos)
 {
     Node *remove = this->first;
@@ -166,7 +165,7 @@ T List<T>::removeAt(int pos)
     {
         throw "pos below 0!!\n";
     }
-    else if(pos > this->nrOfElements)
+    else if(pos > this->nrOfElements-1)
     {
         throw "Greater than nrOfElements\n";
     }
@@ -175,6 +174,7 @@ T List<T>::removeAt(int pos)
         backUp= remove->data;
         this->first=first->next;
         delete remove;
+        this->nrOfElements--;
         return backUp;
     }
     else
@@ -198,7 +198,7 @@ T List<T>::removeAt(int pos)
             beforeRm->next=remove->next;
             delete remove;
         }
-
+        this->nrOfElements--;
         return backUp;
     }
 
@@ -216,7 +216,7 @@ void List<T>::clear()
 template <class T>
 int List<T>::size()
 {
-    return this->nrOfElements+1;
+    return this->nrOfElements;
 }
 
 #endif //LAB1_ADT_LIST_QUEUE_STACK_LIST_H

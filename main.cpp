@@ -1,6 +1,6 @@
 #include <iostream>
-#include "StackLinkingNodes.h"
-#include "StackArray.h"
+//#include "StackLinkingNodes.h"
+//#include "StackArray.h"
 #include "List.h"
 using namespace std;
 //bool testStackLinkingNodes(void);
@@ -10,12 +10,9 @@ int main()
     List<int> aList;//tom lista
                         // i listan:
     aList.insertAt(10,0);//10
-    aList.insertAt(30,0);//30,10
-    aList.insertAt(50,0);//50,30,10
+    aList.insertAt(30,1);//30,10
+    aList.insertAt(50,2);//50,30,10
     cout<<"..."<<endl;
-    cout<<aList.get(1)<<endl;//ger 30
-    cout<<aList.get(0)<<endl;//ger 50
-    cout<<aList.get(2)<<endl;//ger 10
     /*
     try {
         //aList.removeAt(-50);
@@ -44,18 +41,22 @@ int main()
 
 
     List<int> bList=aList;
-    cout <<"rm aList: "<< aList.removeAt(0)<<endl;
+    //cout <<"rm aList: "<< aList.removeAt(0)<<endl;
     cout<<"another List"<<endl;
     cout<<bList.get(0)<<"\n";
     cout<<bList.get(1)<<"\n";
     cout<<bList.get(2)<<"\n";
-
+    cout<<aList.removeAt(0);
+    cout<<aList.removeAt(0);
+    cout<<aList.removeAt(0);
+    ;
+/*
     bList.insertAt(6,0);//300
     cout <<"..."<<endl;
     bList.insertAt(444,0);//310,300
     bList.insertAt(2,0);//320,310,300
-
-
+*/
+/*
     aList.insertAt(18,0);
     cout <<"printing aList followed by bList. aList have"<<endl;
     for (int i = 0; i < bList.size()-1 ; ++i)
@@ -69,7 +70,7 @@ int main()
     }
 
     cout << "Hello, World!" << endl;
-/*
+*
     try{ testStackLinkingNodes();}
     catch(...)
     {
