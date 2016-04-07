@@ -40,9 +40,15 @@ int main()
     }*/
 
 
-    List<int> bList=aList;
+    //List<int> bList=aList;
     //cout <<"rm aList: "<< aList.removeAt(0)<<endl;
+    List<int> bList;
+
+    bList.insertAt(10,0);
+    bList.insertAt(1,1);
+    bList.insertAt(2,2);
     cout<<"another List"<<endl;
+    //
     cout<<bList.get(0)<<"\n";
     cout<<bList.get(1)<<"\n";
     cout<<bList.get(2)<<"\n";
