@@ -69,10 +69,12 @@ List<T>::List()
 template <class T>
 List<T>::~List()
 {
-
+    //kolla om tom.
+    //om innehåll förstör alla noder som allokerats.
+    this->clear();
 }
 
-template <class T>
+template <class T> //tested
 List<T>::List(const List& orgin)
 {
 
@@ -90,12 +92,9 @@ List<T>::List(const List& orgin)
         Node* endNodePtr = this->first;
         for (int i = 0; i < this->nrOfElements-1 ; ++i)
         {
-            walker = walker->next; // step 1
-            //step2
-            ;
+            walker = walker->next;
             endNodePtr->next= new Node(walker->data);
             endNodePtr = endNodePtr->next;
-
         }
     }
 }
@@ -103,7 +102,38 @@ List<T>::List(const List& orgin)
 template <class T>
 List<T>& List<T>::operator=(const List& orgin)
 {
+    // kolla om samma adress. om samma ingen åtgärd.             ok
+    // om olika förstör this med noder.
+    // gå igenom och delete noder.
+    // sätt first till Nil.
+    // skapa noder med orgin nod data.
+    // returnera this med dess innehåll.             ok
+    if (this != &orgin)
+    {
 
+        this->clear();
+
+        if (orgin.nrOfElements > 0)
+        {
+            Node* walker = orgin.first;
+            Node* endNodePtr = this->first;
+            this->nrOfElements = orgin.nrOfElements;
+            this->first = new Node(orgin.first->data);
+            //alternative 2
+            //T theData = orgin.first->data;
+            //Node* aNode=new Node(theData);
+            //this->first=aNode;
+
+            for (int i = 0; i < this->nrOfElements-1 ; ++i)
+            {
+                walker = walker->next;
+                endNodePtr->next= new Node(walker->data);
+                endNodePtr = endNodePtr->next;
+            }
+        }
+
+    }
+    return *this;
 }
 
 //member functions
@@ -206,14 +236,18 @@ T List<T>::removeAt(int pos)
 }
 
 
-template <class T>
+template <class T>//tested
 void List<T>::clear()
 {
-    this->nrOfElements=0;
+    while(this->nrOfElements > -1)
+    {
+        this->removeAt(0);
+
+    }
 }
 
 
-template <class T>
+template <class T>//tested
 int List<T>::size()
 {
     return this->nrOfElements;
