@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
     List<int> aList;//tom lista
-                        // i listan:
+    /*                    // i listan:
     aList.insertAt(10,0);//10
     aList.insertAt(30,1);//30,10
     aList.insertAt(50,2);//50,30,10
@@ -42,7 +42,7 @@ int main()
 
     //List<int> bList=aList;
     //cout <<"rm aList: "<< aList.removeAt(0)<<endl;
-    List<int> bList;
+    /*List<int> bList;
 
     bList.insertAt(10,0);
     bList.insertAt(1,1);
